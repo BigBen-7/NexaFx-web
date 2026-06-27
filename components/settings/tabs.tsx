@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountIcon, SecurityIcon, IdentityIcon } from "../icons";
 import { AccountInfo } from "./account-info";
 import { Security } from "./security";
+import { TwoFactorAuth } from "./two-factor";
+import { ActivityLog } from "./activity-log";
 import { Notification } from "./notification";
 import { ProfileOverview } from "../profile/profile-overview";
 import { PersonalInfo } from "../profile/personal-info";
@@ -42,6 +44,13 @@ export function TabsSettings() {
           />
           Notification
         </TabsTrigger>
+        <TabsTrigger value="activity">
+          <SecurityIcon
+            color={isActiveTap === "activity" ? "#000" : ""}
+            className="size-3.5"
+          />
+          Activity Log
+        </TabsTrigger>
         <TabsTrigger value="identity">
           <IdentityIcon
             color={isActiveTap === "identity" ? "#000" : ""}
@@ -56,9 +65,15 @@ export function TabsSettings() {
       </TabsContent>
       <TabsContent value="security">
         <Security />
+        <div className="mt-6">
+          <TwoFactorAuth />
+        </div>
       </TabsContent>
       <TabsContent value="notification">
         <Notification />
+      </TabsContent>
+      <TabsContent value="activity">
+        <ActivityLog />
       </TabsContent>
       <TabsContent value="identity">
         {" "}
